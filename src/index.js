@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import DropDown from './Components/DropDown.js';
 import axios from 'axios';
 
 const access_token = 'fababa6435ce3cd7b4863b1cceae06fd';
@@ -35,6 +36,8 @@ class UserInfo extends React.Component {
 
         console.log('user:');
         console.log(user);
+                console.log('response:');
+                console.log(response);
 
         this.setState( {user: user} );
         // this.setState({ title: response.data.data[2].name });
@@ -115,6 +118,7 @@ class VideoInfo extends React.Component {
             title: video.name,
             description: video.description,
             video_id: video.uri.slice(8),
+            created_time: video.created_time.slice(0,10),
             upvoteCount: 0
           }
         });
@@ -126,7 +130,7 @@ class VideoInfo extends React.Component {
       .catch(err => {
         console.log(err);
       });
-
+      // <DropDown options={['all','male','female']} name="genderSelected" handleChange={this.handleChange} label="Filter by gender" selected={this.state.genderSelected} />
   }
 
   render() {
@@ -134,6 +138,9 @@ class VideoInfo extends React.Component {
 
     const videoDetails = this.state.videos.map( (item,index) =>
       <div key={item.title}>
+        <div className = "row topMargin bottomMargin">
+
+        </div>
         <div className = "row topMargin bottomMargin">
           <div className="col-xs-4 col-md-4 col-lg-4">
             <h4 className="whiteText oswald">{item.title}</h4>
@@ -147,6 +154,7 @@ class VideoInfo extends React.Component {
           <div className="col-md-1 col-lg-1"></div>
           <div className="col-xs-8 col-md-7 col-lg-7">
             <iframe src={"https://player.vimeo.com/video/" + item.video_id} width="640" height="360" frameBorder="4" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen></iframe>
+            <h3 style={{float: "right"}} className="yellowText garamond">{item.created_time}</h3>
           </div>
         </div>
 
@@ -161,7 +169,12 @@ class VideoInfo extends React.Component {
     // <h1> {this.state.videos[1] && this.state.videos[1].title} </h1>
 
     return (
-        <div>{videoDetails}</div>
+
+        <div>
+          <DropDown options={['Newest - Oldest','Oldest - Newest']} name="dateSelected" />,
+          {videoDetails}
+        </div>
+
     );
   }
 }

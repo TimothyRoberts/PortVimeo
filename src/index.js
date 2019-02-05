@@ -1,15 +1,39 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
+import LabelledInput from './Components/LabelledInput.js';
+
 import './index.css';
 import DropDown from './Components/DropDown.js';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
 const access_token = 'fababa6435ce3cd7b4863b1cceae06fd';
 const user_id = '94195684';
 const vimeoAddress = 'https://vimeo.com';
 
+class BasicExample extends React.Component {
+  render() {
+    return(
+      <BrowserRouter>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+          </ul>
+
+          <hr/>
+
+          {/* The exact keyword ensures the '/' route matches only '/' and not '/anything-else'--> */}
+          <Route exact path="/" component={Home}/>
+          <Route path="/portfolio" component={Portfolio}/>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
 /////////// USER INFORMATION ///////////
-class UserInfo extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     // this is where we will store the comments, when they have been retrieved
@@ -52,7 +76,7 @@ class UserInfo extends React.Component {
     console.log(this.state);
 
     return (
-      <div className="">
+      <Fragment>
         <div className="row">
           <div className="emptyNameDiv"></div>
           <div className="col-xs-6 col-md-6 col-lg-6 nameDiv">
@@ -61,6 +85,8 @@ class UserInfo extends React.Component {
           <div className="col-xs-9 col-md-9 col-lg-9"></div>
           <div className="col-xs-3 col-md-3 col-lg-3 contactDiv">
             <div className="divBorder2">
+              <h3 className="oswald">HOME</h3>
+              <h3 className="oswald">VIEW PROJECTS</h3>
               <h3 className="oswald">CONTACT</h3>
               <h3 className="garamond whiteText">Based in {this.state.user[2] && this.state.user[2]}</h3>
               <h3 className="garamond whiteText">petersherman@gmail.com</h3>
@@ -78,7 +104,7 @@ class UserInfo extends React.Component {
           </div>
         </div>
 
-      </div>
+      </Fragment>
 
     );
   }
@@ -86,7 +112,7 @@ class UserInfo extends React.Component {
 
 
 /////////// VIDEO INFORMATION ///////////
-class VideoInfo extends React.Component {
+class Portfolio extends React.Component {
   constructor(props) {
     super(props);
     // this is where we will store the comments, when they have been retrieved
@@ -171,7 +197,7 @@ class VideoInfo extends React.Component {
     return (
 
         <div>
-          <DropDown options={['Newest - Oldest','Oldest - Newest']} name="dateSelected" />,
+          <LabelledInput name="searchText" label="Search by name" value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. alberto"} />,
           {videoDetails}
         </div>
 
@@ -196,5 +222,4 @@ class UpVoteBox extends React.Component {
 // <button className="upvoteButton" onClick={() => this.props.handleClick(this.props.index)}>&#9829;</button>
 
 
-ReactDOM.render(<UserInfo />, document.getElementById('userInfo'));
-ReactDOM.render(<VideoInfo />, document.getElementById('root'));
+ReactDOM.render(<BasicExample />, document.getElementById('home'));

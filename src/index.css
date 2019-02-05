@@ -1,3 +1,21 @@
+.headerButton {
+  margin-top: 7%;
+  margin-left: 3%;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: rgba(253, 190, 0);
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  /* border-bottom: 1px solid rgba(255, 255, 255); */
+  text-shadow: 0px 0px 0px transparent;
+  font-size: 1.05em;
+  float: right;
+}
+
+.marginRight {
+  margin-right: 1%;
+}
+
 h1 {
   color: rgba(255, 255, 255);
   font-size: 8em;
@@ -10,7 +28,7 @@ h2 {
   line-height: 0.9;
 }
 
-.h1margin {margin-top: 50vh - 186;}
+.h1margin {margin-top: 50vh - 200;}
 .h3margin {margin-top: 25px;}
 
 h3 {
@@ -41,6 +59,7 @@ body {
 
 .oswald {font-family: 'Oswald', sans-serif;}
 .garamond {font-family: 'EB Garamond', serif;}
+.centerText {text-align: center;}
 
 .whiteBorder {
   border-style: solid;
@@ -62,8 +81,9 @@ body {
 .emptyNameDiv {height: 500px;}
 
 .contactDiv {
-  margin-top: 18%;
-  /* margin-top: 45%; */
+  padding: 25px;
+  border: solid rgba(255, 255, 255);
+  margin-top: 250px;
 }
 
 .bio {margin-top: 260px;}
@@ -96,6 +116,11 @@ body {
     transform-origin: 100% 0;
 
 
+}
+
+.search {
+  border-radius: 25px;
+  border: 0px solid transparent;
 }
 
 .upvoteButton {
@@ -133,4 +158,5 @@ body {
 }
 
 .bottomMargin {margin-bottom: 70px;}
-.topMargin {margin-top: 35px;}
+.topMargin {margin-top: 50px;}
+.marginTop {margin-top: 8%;}

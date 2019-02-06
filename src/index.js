@@ -15,9 +15,9 @@ class BasicExample extends React.Component {
   render() {
     return(
       <BrowserRouter>
-        <div className="marginRight">
+        <div className="marginRight zindex1">
           <button className="headerButton"><Link className="oswald whiteText" to="/contact">CONTACT</Link></button>
-          <button className="headerButton"><Link className="oswald whiteText" to="/portfolio">PORTFOLIO</Link></button>
+          <button onClick="myFunction()" id="portfolioBtn" className="headerButton"><Link className="oswald whiteText" to="/portfolio">PORTFOLIO</Link></button>
           <button className="headerButton"><Link className="oswald whiteText" to="/">HOME</Link></button>
 
 
@@ -99,9 +99,13 @@ class Portfolio extends React.Component {
     super(props);
     // this is where we will store the comments, when they have been retrieved
     this.state = {
-      videos: []
+      videos: [],
+      searchText: ''
     };
+
     this.handleUpvote = this.handleUpvote.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+
   }
 
   handleUpvote(index) {
@@ -111,6 +115,17 @@ class Portfolio extends React.Component {
     this.setState( (prevState, props) => ({
       upvoteCount: prevState.upvoteCount + 1
     }));
+  }
+
+  handleChange(event) {
+    // handle both of the <select> UI elements
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   componentDidMount() {
@@ -123,7 +138,7 @@ class Portfolio extends React.Component {
       .then(response => {
         const videos = response.data.data.map(video => {
           return {
-            title: video.name,
+            name: video.name,
             description: video.description,
             video_id: video.uri.slice(8),
             created_time: video.created_time.slice(0,10),
@@ -138,18 +153,21 @@ class Portfolio extends React.Component {
       .catch(err => {
         console.log(err);
       });
-      // <DropDown options={['all','male','female']} name="genderSelected" handleChange={this.handleChange} label="Filter by gender" selected={this.state.genderSelected} />
   }
+
 
   render() {
 
-    const videoDetails = this.state.videos.map( (item,index) =>
-      <div key={item.title}>
+    const videoDetails = this.state.videos.map( (item, index) => {
+      const nameMatch = item.name.startsWith(this.state.searchText);
+      return (nameMatch) ? (
+      <div key={item.name}>
 
         <div className = "row topMargin "></div>
+
         <div className = "row topMargin bottomMargin">
           <div className="col-xs-4 col-md-4 col-lg-4">
-            <h4 className="whiteText oswald">{item.title}</h4>
+            <h4 className="whiteText oswald">{item.name}</h4>
             <hr className="yellow" />
             <h3 className="yellowText garamond">{item.description}</h3>
 
@@ -164,11 +182,12 @@ class Portfolio extends React.Component {
           </div>
         </div>
       </div>
-    );
+    ) : null;
+    });
 
     return (
         <div>
-          <LabelledInput name="searchText" label="Search by name" value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. alberto"} />
+          <LabelledInput name="searchText" label="Search by name" value={this.state.searchText} handleChange={this.handleChange} placeholder={"  Search Projects"} />
           {videoDetails}
         </div>
     );

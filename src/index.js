@@ -7,18 +7,39 @@ import DropDown from './Components/DropDown.js';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
+import P5Wrapper from 'react-p5-wrapper';
+import sketch from './sketch.js';
+
 const access_token = 'fababa6435ce3cd7b4863b1cceae06fd';
 const user_id = '94195684';
 const vimeoAddress = 'https://vimeo.com';
 
+
+
+
+
+
 class BasicExample extends React.Component {
+  constructor(props) {
+		super(props);
+		this.state = {
+			stateSketch: sketch,
+      background: "yellow"
+		};
+	}
+
+  backgroundChange(e){
+    this.state.background === "yellow" ? this.setState({background: "black"}) : this.setState({background: "yellow"});
+  }
+
   render() {
     return(
       <BrowserRouter>
         <div className="marginRight zindex1">
-          <button className="headerButton"><Link className="oswald whiteText" to="/contact">CONTACT</Link></button>
-          <button onClick="myFunction()" id="portfolioBtn" className="headerButton"><Link className="oswald whiteText" to="/portfolio">PORTFOLIO</Link></button>
-          <button className="headerButton"><Link className="oswald whiteText" to="/">HOME</Link></button>
+          <P5Wrapper sketch={this.state.stateSketch} />
+          <button onClick={this.backgroundChange.bind(this)} className="headerButton"><Link className="oswald whiteText" to="/contact">CONTACT</Link></button>
+          <button onClick={this.backgroundChange.bind(this)} id="portfolioBtn" className="headerButton"><Link className="oswald whiteText" to="/portfolio">PORTFOLIO</Link></button>
+          <button onClick={this.backgroundChange.bind(this)} className="headerButton"><Link className="oswald whiteText" to="/">HOME</Link></button>
 
 
           <Route exact path="/" component={Home}/>
@@ -264,6 +285,5 @@ class Contact extends React.Component {
     );
   }
 }
-
 
 ReactDOM.render(<BasicExample />, document.getElementById('home'));

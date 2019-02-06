@@ -23,13 +23,29 @@ class BasicExample extends React.Component {
   constructor(props) {
 		super(props);
 		this.state = {
+      yellow: true,
 			stateSketch: sketch,
-      background: "yellow"
 		};
 	}
 
   backgroundChange(e){
-    this.state.background === "yellow" ? this.setState({background: "black"}) : this.setState({background: "yellow"});
+    // this.setState({background: "yellow"});
+    // console.log(this.state);
+    this.setState({yellow: e.target.value});
+  }
+
+  backgroundYellow(e){
+    // this.setState({background: "yellow"});
+    // console.log(this.state);
+    this.setState({yellow: true});
+    console.log(this.state);
+  }
+
+  backgroundBlack(e){
+    // this.setState({background: "black"});
+    // console.log(this.state);
+    this.setState({yellow: false});
+    console.log(this.state);
   }
 
   render() {
@@ -38,7 +54,7 @@ class BasicExample extends React.Component {
         <div className="marginRight zindex1">
           <P5Wrapper sketch={this.state.stateSketch} />
           <button onClick={this.backgroundChange.bind(this)} className="headerButton"><Link className="oswald whiteText" to="/contact">CONTACT</Link></button>
-          <button onClick={this.backgroundChange.bind(this)} id="portfolioBtn" className="headerButton"><Link className="oswald whiteText" to="/portfolio">PORTFOLIO</Link></button>
+          <button value={this.state.yellow} onClick={this.backgroundChange.bind(this)} className="headerButton"><Link className="oswald whiteText" to="/portfolio">PORTFOLIO</Link></button>
           <button onClick={this.backgroundChange.bind(this)} className="headerButton"><Link className="oswald whiteText" to="/">HOME</Link></button>
 
 
@@ -182,24 +198,24 @@ class Portfolio extends React.Component {
     const videoDetails = this.state.videos.map( (item, index) => {
       const nameMatch = item.name.startsWith(this.state.searchText);
       return (nameMatch) ? (
-      <div key={item.name}>
+      <div className="" key={item.name}>
 
-        <div className = "row topMargin "></div>
+        <div className = "row topMargin"></div>
 
-        <div className = "row topMargin bottomMargin">
+        <div className = "row topMargin bottomMargin borderTB">
           <div className="col-xs-4 col-md-4 col-lg-4">
-            <h4 className="whiteText oswald">{item.name}</h4>
-            <hr className="yellow" />
-            <h3 className="yellowText garamond">{item.description}</h3>
+            <h4 className="blackText oswald">{item.name}</h4>
+            <hr className="black" />
+            <h3 className="blackText garamond">{item.description}</h3>
 
             <UpVoteBox handleUpvote={this.handleUpvote} index={index} count={item.upvoteCount}/>
-            <h3 style={{float: "left"}} className="yellowText garamond">{item.upvoteCount}</h3>
+            <h3 style={{float: "left"}} className="blackText garamond">{item.upvoteCount}</h3>
 
           </div>
           <div className="col-md-1 col-lg-1"></div>
           <div className="col-xs-8 col-md-7 col-lg-7">
             <iframe src={"https://player.vimeo.com/video/" + item.video_id} width="640" height="360" frameBorder="4" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen></iframe>
-            <h3 style={{float: "right"}} className="yellowText garamond">{item.created_time}</h3>
+            <h3 style={{float: "right"}} className="blackText smallTextSize garamond">{item.created_time}</h3>
           </div>
         </div>
       </div>

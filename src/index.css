@@ -12,6 +12,8 @@
   float: right;
 }
 
+.aaa {}
+
 .marginRight {
   margin-right: 1%;
 }
@@ -62,11 +64,20 @@ body {
 .oswald {font-family: 'Oswald', sans-serif;}
 .garamond {font-family: 'EB Garamond', serif;}
 .centerText {text-align: center;}
+.smallTextSize {font-size: 0.95em;}
 
 .whiteBorder {
   border-style: solid;
   border-color: rgba(255, 255, 255);
   border-width: thin;
+}
+
+.borderTB {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  border-radius: 25px;
+  border-top: solid 1px rgba(255, 255, 255);
+  border-bottom: solid 1px rgba(255, 255, 255);
 }
 
 .zindex1 {
@@ -88,7 +99,7 @@ body {
 
 .contactDiv {
   padding: 25px;
-  border: solid rgba(255, 255, 255);
+  border: solid 1px rgba(255, 255, 255);
   margin-top: 250px;
 }
 
@@ -107,8 +118,8 @@ body {
 .upvoteButton {
   /* margin-left: 300px; */
   margin-left: 10px;
-  background-color: rgba(250, 183, 0);
-  border-color: rgba(250, 183, 0);
+  background-color: rgba(253, 190, 0);
+  border-color: rgba(20, 20, 20);
   border-radius: 25px;
 }
 

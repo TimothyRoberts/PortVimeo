@@ -57,16 +57,11 @@ class Portfolio extends React.Component {
             description: video.description,
             video_id: video.uri.slice(8),
             created_time_origin: video.created_time,
-            created_time_year: parseFloat(video.created_time.slice(0,4)),
-            created_time_month: parseFloat(video.created_time.slice(5,7)),
-            created_time_day: parseFloat(video.created_time.slice(8,10)),
-            created_time_total: parseFloat(video.created_time.slice(0,4)) + parseFloat(video.created_time.slice(5,7)) + parseFloat(video.created_time.slice(8,10)),
             created_time: video.created_time.slice(0,10),
             upvoteCount: 0
           }
         });
-        console.log('videos:');
-        console.log(videos);
+
 
         this.setState( {videos: videos} );
       })
@@ -109,7 +104,7 @@ class Portfolio extends React.Component {
           <div className="col-md-1 col-lg-1"></div>
           <div className="col-xs-8 col-md-7 col-lg-7">
             <iframe className="padRight" title={item.name} src={"https://player.vimeo.com/video/" + item.video_id} width="640" height="360" frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen></iframe>
-            <h3 style={{float: "right"}} className="blackText smallTextSize garamond">{item.created_time}</h3>
+            <h3 style={{float: "right"}} className="yellowText padRight smallTextSize garamond">{item.created_time}</h3>
           </div>
         </div>
       </div>
@@ -119,7 +114,7 @@ class Portfolio extends React.Component {
     return (
         <div>
           <LabelledInput name="searchText" label="Search by name" value={this.state.searchText} handleChange={this.handleChange} placeholder={"  Search Projects"} />
-            <DropDown options={['Newest - Oldest', 'Oldest - Newest']} name="sortBy" handleChange={this.handleChange} label="" selected={this.state.created_time} />
+          <DropDown options={['Newest - Oldest', 'Oldest - Newest']} name="sortBy" handleChange={this.handleChange} label="" selected={this.state.created_time} />
           {videoDetails}
         </div>
     );

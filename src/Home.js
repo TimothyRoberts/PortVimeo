@@ -22,16 +22,11 @@ class Home extends React.Component {
                }
             )
       .then(response => {
-        // GET request was successful, store the results in state
-        console.log(response);
+
         const user = [response.data.data[0].user.name.toUpperCase(),
                       response.data.data[0].user.bio,
                       response.data.data[0].user.location];
 
-        console.log('user:');
-        console.log(user);
-                console.log('response:');
-                console.log(response);
 
         this.setState( {user: user} );
       })
@@ -41,7 +36,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state);
 
     return (
       <Fragment>

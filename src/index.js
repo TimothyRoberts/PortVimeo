@@ -7,7 +7,7 @@ import Portfolio from './Portfolio';
 import Contact from './Contact';
 
 
-class BasicExample extends React.Component {
+class Index extends React.Component {
   render() {
     return(
       <BrowserRouter>
@@ -26,4 +26,4 @@ class BasicExample extends React.Component {
 }
 
 
-ReactDOM.render(<BasicExample />, document.getElementById('home'));
+ReactDOM.render(<Index />, document.getElementById('home'));

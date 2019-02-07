@@ -12,7 +12,6 @@
   float: right;
 }
 
-.aaa {}
 
 .marginRight {
   margin-right: 1%;
@@ -20,7 +19,7 @@
 
 h1 {
   color: rgba(255, 255, 255);
-  font-size: 8em;
+  font-size: 8.5em;
   line-height: 0.9;
 }
 
@@ -31,7 +30,7 @@ h2 {
 }
 
 .h1margin {margin-top: 50vh - 200;}
-.h3margin {margin-top: 25px;}
+.h3margin {margin-top: 25px;padding-top: 50px;}
 
 h3 {
   font-size: 1.3em;
@@ -48,7 +47,7 @@ h4 {
 p {font-family: 'Source Sans Pro', serif;}
 
 body {
-  background-color: transparent;
+  background-color: rgba(253, 190, 0);
 }
 
 #canvasContainer {position: fixed; z-index: -100;}
@@ -73,11 +72,12 @@ body {
 }
 
 .borderTB {
+  background: black;
   padding-top: 40px;
   padding-bottom: 10px;
   border-radius: 25px;
-  border-top: solid 1px rgba(255, 255, 255);
-  border-bottom: solid 1px rgba(255, 255, 255);
+  border-top: solid 1px rgba(20, 20, 20);
+  border-bottom: solid 1px rgba(20, 20, 20);
 }
 
 .zindex1 {
@@ -103,7 +103,7 @@ body {
   margin-top: 250px;
 }
 
-.bio {margin-top: 260px;}
+.bio {margin-top: 270px;}
 
 .arrow {margin-left: 53px; font-size: 5em;}
 
@@ -149,6 +149,8 @@ body {
   width: 100%;
 }
 
-.bottomMargin {margin-bottom: 70px;}
-.topMargin {margin-top: 50px;}
+.padRight {padding-right: 50px;}
+.padLeft {padding-left: 50px;}
+.bottomMargin {margin-bottom: 0px;}
+.topMargin {margin-top: 40px;}
 .marginTop {margin-top: 8%;}

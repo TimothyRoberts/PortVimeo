@@ -25,9 +25,7 @@ class Portfolio extends React.Component {
   handleUpvote(index) {
     this.state.videos[index].upvoteCount++;
     console.log(this.state.videos[index].upvoteCount);
-    this.setState( (prevState, props) => ({
-      videos[index].upvoteCount: prevState.videos[index].upvoteCount + 1
-    }));
+
   }
 
   handleChange(event) {
@@ -44,7 +42,7 @@ class Portfolio extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("https://api.vimeo.com/users/94195684/videos", {
+    axios.get("https://api.vimeo.com/users/94043645/videos", {
                   headers: {
                     Authorization: `Bearer ${access_token}`
                   }

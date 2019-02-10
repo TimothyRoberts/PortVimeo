@@ -14,4 +14,4 @@ in your terminal to run the project. If you have a Vimeo account, place your Vim
 ```
 axios.get("https://api.vimeo.com/users/94195684/videos", {
 ```
-Do this in the Home.js, Contact.js and Portfolio.js files.
+Do this in the Home.js, Contact.js and Portfolio.js files in the src folder.

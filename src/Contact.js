@@ -15,7 +15,7 @@ class Contact extends React.Component {
 
   // Runs when component is mounted
   componentDidMount() {
-    axios.get("https://api.vimeo.com/users/94043645/videos", {
+    axios.get("https://api.vimeo.com/users/94195684/videos", {
                   headers: {
                     Authorization: `Bearer ${access_token}`
                   }
@@ -54,7 +54,7 @@ class Contact extends React.Component {
           <div className="col-xs-5 col-md-5 col-lg-5">
             <div className="contactDiv">
               <h3 className="garamond blackText centerText">Based in {this.state.user[2] && this.state.user[2]}</h3>
-              <h3 className="garamond blackText centerText">timdwroberts@gmail.com</h3>
+              <h3 className="garamond blackText centerText">petersherman@gmail.com</h3>
             </div>
         </div>
 

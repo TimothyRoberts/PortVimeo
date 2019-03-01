@@ -15,14 +15,14 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("https://api.vimeo.com/users/94043645/videos", {
+    axios.get("https://api.vimeo.com/users/94195684/videos", {
                   headers: {
                     Authorization: `Bearer ${access_token}`
                   }
                }
             )
       .then(response => {
-        console.log(response);
+
         const user = [response.data.data[0].user.name.toUpperCase(),
                       response.data.data[0].user.bio,
                       response.data.data[0].user.location];

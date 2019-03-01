@@ -50,13 +50,14 @@ class Contact extends React.Component {
         <div className="col-xs-12 col-md-12 col-lg-12"></div>
       </div>
       <div className="row">
-        <div className="col-xs-7 col-md-7 col-lg-7"></div>
-          <div className="col-xs-5 col-md-5 col-lg-5">
+        <div className="col-xs-1 col-md-1 col-lg-1"></div>
+          <div className="col-xs-11 col-md-11 col-lg-11">
             <div className="contactDiv">
               <h3 className="garamond blackText centerText">Based in {this.state.user[2] && this.state.user[2]}</h3>
               <h3 className="garamond blackText centerText">petersherman@gmail.com</h3>
+              <h3 className="garamond blackText centerText">LinkedIn/petersherman</h3>
             </div>
-        </div>
+          </div>
 
         <div className="col-xs-4 col-md-4 col-lg-4"></div>
       </div>

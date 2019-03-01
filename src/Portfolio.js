@@ -26,10 +26,10 @@ class Portfolio extends React.Component {
     this.state.videos[index].upvoteCount++;
     console.log(this.state.videos[index].upvoteCount);
     this.setState( (prevState, props) => ({
-      videos[index].upvoteCount: prevState.videos[index].upvoteCount + 1
+      upvoteCount: prevState.upvoteCount + 1
     }));
   }
-
+  
   handleChange(event) {
 
     // console.log(this.state.searchText);

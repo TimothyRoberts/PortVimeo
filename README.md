@@ -6,7 +6,7 @@ View example here at this address: https://vimeoportfolio-419c1.firebaseapp.com/
 
 ## Getting Started
 
-To access this project, first clone this repository. Then, go to the portfolio folder directory in your terminal. Finally run
+To access this project, first clone this repository. Then, go to the portfolio folder directory in your terminal. Finally, run
 ```
 npm start
 ```

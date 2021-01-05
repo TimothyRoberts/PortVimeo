@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@vimeo/player": "^2.6.7",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-p5-wrapper": "0.0.4",
